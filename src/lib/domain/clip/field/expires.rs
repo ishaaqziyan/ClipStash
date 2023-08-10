@@ -1,17 +1,17 @@
 use serde::{Deserialize, Serialize};
-use std::std::FromStr;
-use super::ClipEror; 
-use crate::domain::Time;
+use std::str::FromStr;
+use crate::domain::clip::ClipError;
+use crate::domain::time::Time;
 
 #[derive(Clone,Debug,Serialize,Deserialize)]
 pub struct Expires(Option<Time>);
 
 impl Expires {
-    pub fn new<t: Into<Option<Time>>>(expires:T) -> Self {
-        Self(expires.into)
+    pub fn new<T: Into<Option<Time>>>(expires: T) -> Self {
+        Self(expires.into())
     }
     pub fn into_inner(self) ->Option<Time> {
-       self    }
+       self.0    }
 }
 
 impl Default for Expires {

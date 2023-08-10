@@ -1,4 +1,4 @@
-use super::ClipError;
+use crate::domain::clip::ClipError;
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
 use derive_more::From;
@@ -9,7 +9,7 @@ pub struct ShortCode (String);
 impl ShortCode {
     pub fn new() -> Self {
         use rand::prelude::*;
-        let alloed_chars = [
+        let allowed_chars = [
            'a','b','c','d','1','2','3','4'
         ];
 
@@ -17,7 +17,7 @@ impl ShortCode {
         let mut shortcode= String::with_capacity(10);
         for _ in 0..10 {
             shortcode.push (
-                *allowed_chars
+            *allowed_chars
                     .choose(&mut rng)
                     .expect("The sampling array should have values")
             );
@@ -47,7 +47,7 @@ impl From<ShortCode> for String {
 }
 
 impl From<&str> for ShortCode {
-    fn from(shortcode: &stre) -> Self {
+    fn from(shortcode: &str) -> Self {
         ShortCode(shortcode.to_owned())
     }
 }

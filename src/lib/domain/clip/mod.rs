@@ -21,7 +21,7 @@ pub enum ClipError {
     Hits(#[from] std::num::TryFromIntError),
 }
 
-#[derive(Debug, CLone,Deserialize,Serialize)]
+#[derive(Debug, Clone,Deserialize,Serialize)]
 
 pub struct Clip {
     pub clip_id: field::ClipId,

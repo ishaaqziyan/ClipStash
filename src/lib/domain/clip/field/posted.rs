@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 use derive_more::Constructor;
-use crate::domain::Time;
+use crate::domain::time::Time;
 
 #[derive(Clone,Constructor,Debug,Deserialize,Serialize)]
 pub struct Posted(Time);

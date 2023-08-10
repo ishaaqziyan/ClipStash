@@ -1,8 +1,8 @@
-use super::ClipError;
+use crate::domain::clip::ClipError;
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
 
-#[Derive(Clone,Debug,Deserialize,Serialize)]
+#[derive(Clone,Debug,Deserialize,Serialize)]
 pub struct Title(Option<String>);
 
 impl Title{
@@ -16,14 +16,16 @@ impl Title{
                     Self(None)
                 }
             }
+            None => Self (None)
         }
-        None = Self (None)
+       
     }
+
+    pub fn into_inner(self) -> Option<String> {
+        self.0
+   }
 }
 
-pub fn into_inner(self) -> Option<String> {
-     self.0
-}
 
 impl Default for Title {
     fn default() -> Self {

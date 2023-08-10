@@ -24,7 +24,7 @@ impl Default for DbId{
 
 impl FromStr for DbId {
     type Err = uuid::Error;
-    fn from_str(id: &str) -> Result<Self,Self::Error>{
+    fn from_str(id: &str) -> Result<Self,Self::Err>{
         Ok(DbId(Uuid::parse_str(id)?))
     }
 }
