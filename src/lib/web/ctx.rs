@@ -1,35 +1,37 @@
 use serde::Serialize;
 use derive_more::Constructor;
 
+
 pub trait PageContext {
+   
     fn title(&self) -> &str;
     fn template_path(&self) -> &str;
+   
     fn parent(&self) -> &str;
 }
 
-#[derive(Debug,Serialize)]
+/// The Home page.
+#[derive(Debug, Serialize)]
 pub struct Home {}
 
 impl Default for Home {
     fn default() -> Self {
-        Self { }
+        Self {}
     }
 }
 
 impl PageContext for Home {
     fn template_path(&self) -> &str {
-        ""
+        "home"
     }
     fn title(&self) -> &str {
-        "Stash your ClipBoard!"
+        "Stash Your Clipboard!"
     }
-
     fn parent(&self) -> &str {
         "base"
     }
 }
-
-#[derive(Debug,Serialize, Constructor)]
+#[derive(Debug, Serialize, Constructor)]
 pub struct ViewClip {
     pub clip: crate::Clip,
 }
@@ -41,14 +43,12 @@ impl PageContext for ViewClip {
     fn title(&self) -> &str {
         "View Clip"
     }
-
     fn parent(&self) -> &str {
         "base"
     }
 }
 
-
-#[derive(Debug,Serialize, Constructor)]
+#[derive(Debug, Serialize, Constructor)]
 pub struct PasswordRequired {
     shortcode: crate::ShortCode,
 }
@@ -60,9 +60,7 @@ impl PageContext for PasswordRequired {
     fn title(&self) -> &str {
         "Password Required"
     }
-
     fn parent(&self) -> &str {
         "base"
     }
 }
-
