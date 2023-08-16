@@ -1,5 +1,6 @@
 pub mod ctx;
 pub mod renderer;
+pub mod form;
 
 #[derive(rocket::Responder )]
 pub enum PageError {
