@@ -4,6 +4,26 @@ use crate::service::ask;
 use crate::{Clip,ServiceError,ShortCode};
 use std::convert::TryInto;
 
+//Starts TX
+pub async fn begin_transaction(pool: &DatabasePool) -> Result<Transaction<'_>, ServiceError> {
+    Ok(pool.begin().await?)
+}
+
+//Ends TX
+pub async fn end_transaction(transaction: Transaction<'_>) -> Result<(), ServiceError> {
+    Ok(transaction.commit().await?)
+}
+
+
+
+pub async fn increase_hit_count(
+    shortcode: &ShortCode,
+    hits: u32,
+    pool: &DatabasePool
+) -> Result <(), ServiceError> {
+    Ok(query::increase_hit_count(shortcode, hits, pool).await?)
+}
+
 
 pub async fn new_clip(req: ask::NewClip, pool: &DatabasePool)
 -> Result<Clip,ServiceError> {
