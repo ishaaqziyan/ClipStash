@@ -1,4 +1,3 @@
-use crate::data::model::NewClip;
 use crate::data::{query,DatabasePool,Transaction};
 use crate::service::ask;
 use crate::{Clip,ServiceError,ShortCode};

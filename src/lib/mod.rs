@@ -17,7 +17,7 @@ pub use service::ServiceError;
 use rocket::fs::FileServer;
 use rocket::{Build,Rocket};
 use web::hitcounter::HitCounter;
-use web::{renderer::Renderer};
+use web::renderer::Renderer;
 
 
 pub fn rocket(config: RocketConfig) -> Rocket<Build>{

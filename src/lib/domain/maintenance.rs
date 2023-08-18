@@ -1,7 +1,6 @@
 use crate::data::DatabasePool;
 use crate::service;
 use std::time::Duration;
-use rocket::Data;
 use tokio::runtime::Handle;
 
 pub struct Maintenance;
