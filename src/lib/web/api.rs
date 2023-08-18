@@ -1,10 +1,10 @@
-use crate::data::{AppDatabase, self};
+use crate::data::AppDatabase;
 use crate::service;
 use crate::service::action;
 use crate::web::{HitCounter, PASSWORD_COOKIE};
 use crate::ServiceError;
-use rocket::http::{CookieJar,Status};
-use rocket::request::{FromRequest,Outcome,Request};
+use rocket::http::{CookieJar, Status};
+use rocket::request::{FromRequest, Outcome, Request};
 use rocket::serde::json::Json;
 use rocket::Responder;
 use rocket::State;
