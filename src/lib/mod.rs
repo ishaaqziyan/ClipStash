@@ -7,6 +7,7 @@ pub mod web;
 use data::AppDatabase;
 pub use domain::clip::field::ShortCode;
 pub use domain::clip::{Clip,ClipError};
+use domain::maintenance::Maintenance;
 pub use domain::time::Time;
 pub use data::DataError;
 pub use service::ServiceError;
@@ -24,6 +25,7 @@ pub fn rocket(config: RocketConfig) -> Rocket<Build>{
        .manage::<AppDatabase>(config.database)
        .manage::<Renderer>(config.renderer)
        .manage::<HitCounter>(config.hit_counter)
+       .manage::<Maintenance>(config.maintenance)
        .mount("/", web::http::routes())
        .mount("/api/clip", web::api::routes())
        .mount("/static", FileServer::from("static"))
@@ -35,4 +37,5 @@ pub struct RocketConfig {
     pub renderer: Renderer<'static>,
     pub database: AppDatabase,
     pub hit_counter: HitCounter,
+    pub maintenance: Maintenance,
 }

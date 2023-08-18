@@ -135,4 +135,14 @@ pub async fn update_clip<M: Into<model::UpdateClip>> (
             })?,
 
         )
-    }
+}
+
+
+pub async fn delte_expired(pool: &DatabasePool) -> Result<u64> {
+    Ok(
+        sqlx::query!(r#"DELETE FROM clips WHERE strftime('&s', 'now') > expires"#)
+           .execute(pool)
+           .await?
+           .rows_affected()
+    )
+}  
