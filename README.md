@@ -20,7 +20,7 @@ After installing the tool, you can configure the database for the project by run
 
 ```
 sqlx database setup
-
+```
 
 Addition Troubleshooting Steps:
 If you are getting compilation errors related to `rocket::response::content::Html` or `rocket::response::content::RawHtml` then run these commands to fix:
