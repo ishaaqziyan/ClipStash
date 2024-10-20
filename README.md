@@ -1,4 +1,5 @@
 # ClipStash
+## NOTE: DUE TO MASSIVE BREAKING CHANGES, I'VE ARCHIVED THIS PROJECT, EFFECTIVE FROM 20/10/2024.
 ClipStash is the OG Web Service that allows users to paste and share clipboard content. Built on top of Rust.
 ![image](https://github.com/ishaaqziyan/ClipStash/assets/98882071/17db8e76-8dc3-4f95-8ffc-9f6c8cccf460)
 
